@@ -1,0 +1,20 @@
+$primary: #736ced;
+$primary-dark: #504d92;
+$primary-light: #a8a6f0;
+$secondary: #1a1a1a;
+$tertiary: #999999;
+$quarternary: #aaaaaa;
+$white: #ffffff;
+$black: #000000;
+$base: #eeeeee;
+$map: (
+	primary: $primary,
+	primary-dark: $primary-dark,
+	primary-light: $primary-light,
+	secondary: $secondary,
+	tertiary: $tertiary,
+	quarternary: $quarternary,
+	white: $white,
+	black: $black,
+	base: $base,
+);
