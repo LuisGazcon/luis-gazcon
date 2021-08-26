@@ -1,7 +1,9 @@
 const path = require('path');
+const SassAlias = require('sass-alias');
 
 const PRODUCTION = process.env['NODE_ENV'] === 'production';
 const SOURCE_PATH = path.join(__dirname, 'src');
+const RESOURCES_PATH = path.join(SOURCE_PATH, 'resources');
 
 const CSS_LOADER_OPTIONS_MODULES = {
 	compileType: 'module',
@@ -30,9 +32,18 @@ module.exports = (config) => {
 				}
 				if (l.loader.includes('sass-loader')) {
 					l.loader = require.resolve('sass-loader');
+					l.options = {
+						...l.options,
+						sassOptions: {
+							importer: new SassAlias({
+								'@resources': RESOURCES_PATH,
+							}).getImporter(),
+						},
+					};
 				}
 			});
 		}
 	});
+
 	return config;
 };
