@@ -12,9 +12,7 @@
     "next": "11.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "sass": "^1.38.1",
-    "sass-alias": "^1.0.4",
-    "sass-loader": "^12.1.0"
+    "sass-alias": "^1.0.4"
   },
   "devDependencies": {
     "@types/react": "17.0.18",
