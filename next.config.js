@@ -7,7 +7,7 @@ module.exports = {
 	sassOptions: {
 		importer: new SassAlias({
 			'@resources': path.join(__dirname, 'src', 'resources'),
-		}),
+		}).getImporter(),
 	},
 	webpack: (config) => {
 		config.module.rules[3].oneOf.forEach((moduleLoader, i) => {
