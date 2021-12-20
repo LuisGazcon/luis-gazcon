@@ -1,0 +1,70 @@
+@use '@resources/scss/colors';
+@use '@resources/scss/breakpoints';
+
+$primary-dark: darken(colors.$primary, 15%);
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	z-index: 0;
+	overflow: hidden;
+	.card {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		padding: 2rem;
+		position: relative;
+		overflow: hidden;
+		background: linear-gradient(to bottom, colors.$primary, $primary-dark);
+		color: colors.$white;
+		z-index: 3;
+		transition: 0.5s all ease-in-out;
+
+		.icon {
+			color: colors.$white;
+			margin-bottom: 1rem;
+			align-self: center;
+			height: auto;
+			height: 8rem;
+			width: 100%;
+			z-index: 1;
+		}
+
+		.background-icon {
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: rgba($primary-dark, 0.5);
+			height: 24rem;
+			width: 24rem;
+			z-index: 0;
+			transform: translate(30%, 15%) rotate(-15deg);
+		}
+
+		.content {
+			z-index: 1;
+			* {
+				color: inherit;
+			}
+		}
+		.title {
+			color: inherit;
+			margin-bottom: 1rem;
+			z-index: 1;
+		}
+
+		&:hover {
+			box-shadow: 0 0 4rem 0 rgba(colors.$primary, 0.5);
+		}
+	}
+}
+
+@media screen and(max-width: breakpoints.$laptop - 1) {
+	.skill-card {
+		background: #000;
+	}
+}
+
+@media screen and(min-width: breakpoints.$laptop) {
+	.skill-card {
+	}
+}

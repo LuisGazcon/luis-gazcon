@@ -1,0 +1,50 @@
+@use '@resources/scss/colors';
+@use '@resources/scss/breakpoints';
+
+.skills {
+	display: flex;
+	flex-direction: column;
+	padding: var(--section-padding-y) var(--section-padding-x);
+
+	background: colors.$base;
+
+	.heading {
+		margin-bottom: 6rem;
+	}
+}
+
+@media screen and(min-width: breakpoints.$mobile-medium ) {
+	.skills {
+	}
+}
+
+@media screen and(min-width: breakpoints.$mobile-large) {
+	.skills {
+	}
+}
+
+@media screen and(max-width: breakpoints.$laptop - 1) {
+	.skills {
+		.content {
+			display: flex;
+			flex-direction: column;
+			gap: var(--section-padding-x);
+		}
+	}
+}
+
+@media screen and(min-width: breakpoints.$laptop) {
+	.skills {
+		.content {
+			display: grid;
+			grid-auto-flow: column;
+			grid-auto-columns: 1fr;
+			grid-column-gap: calc(var(--section-padding-x) / 2);
+		}
+	}
+}
+
+@media screen and(min-width: breakpoints.$desktop) {
+	.skills {
+	}
+}

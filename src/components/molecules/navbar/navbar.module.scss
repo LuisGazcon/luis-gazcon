@@ -1,0 +1,33 @@
+@use '@resources/scss/breakpoints';
+
+.navbar {
+	display: flex;
+
+	ul {
+		display: flex;
+		list-style: none;
+	}
+}
+
+@media screen and(max-width: breakpoints.$laptop - 1) {
+	.navbar {
+		flex-grow: 1;
+		ul {
+			flex-grow: 1;
+			flex-direction: column;
+			width: 100%;
+		}
+	}
+}
+
+@media screen and(min-width: breakpoints.$laptop) {
+	.navbar {
+		height: 100%;
+		margin-left: auto;
+
+		ul {
+			align-items: center;
+			flex-direction: row;
+		}
+	}
+}

@@ -1,0 +1,11 @@
+@use '@resources/scss/colors';
+@use '@resources/scss/border';
+
+.card {
+	--card-padding: 2rem;
+	background: colors.$white;
+	border-radius: border.$radius-large;
+	box-shadow: 0 0 4rem 0 darken(colors.$base, 5%);
+	padding: var(--card-padding);
+	min-width: 2rem;
+}

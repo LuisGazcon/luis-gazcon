@@ -1,0 +1,10 @@
+$radius-small: 0.25rem;
+$radius-normal: 0.5rem;
+$radius-large: 1rem;
+
+$radius: (
+	none: 0,
+	small: $radius-small,
+	normal: $radius-normal,
+	large: $radius-large,
+);

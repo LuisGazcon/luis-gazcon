@@ -1,0 +1,18 @@
+@use '@resources/scss/colors';
+@use '@resources/scss/breakpoints';
+
+.paragraph {
+	color: colors.$secondary;
+}
+
+@media screen and(max-width: breakpoints.$laptop - 1) {
+	.paragraph {
+		font-size: 1rem;
+	}
+}
+
+@media screen and(min-width: breakpoints.$laptop) {
+	.paragraph {
+		font-size: 1.25rem;
+	}
+}

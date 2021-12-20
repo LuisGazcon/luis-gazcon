@@ -1,0 +1,108 @@
+@use '@resources/scss/colors';
+@use '@resources/scss/breakpoints';
+
+.heading {
+	font-weight: 800;
+	color: colors.$primary;
+
+	&:is(h3) {
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			display: flex;
+			top: 200%;
+			left: 0;
+			border-radius: 0.25rem;
+			height: 0.25rem;
+			width: 10%;
+			background: colors.$primary;
+			opacity: 0.5;
+		}
+	}
+}
+
+@media screen and(max-width: breakpoints.$mobile-large - 1) {
+	.heading {
+		&:is(h1) {
+			font-size: 2.25rem;
+		}
+
+		&:is(h2) {
+			font-size: 2rem;
+		}
+
+		&:is(h3) {
+			font-size: 1.5rem;
+		}
+
+		&:is(h4) {
+			font-size: 1.25rem;
+		}
+
+		&:is(h5) {
+			font-size: 1.15rem;
+		}
+
+		&:is(h6) {
+			font-size: 0.75rem;
+		}
+	}
+}
+
+@media screen and(min-width: breakpoints.$mobile-large) {
+	.heading {
+		&:is(h1) {
+			font-size: 2.75rem;
+		}
+
+		&:is(h2) {
+			font-size: 2.25rem;
+		}
+
+		&:is(h3) {
+			font-size: 1.85rem;
+		}
+
+		&:is(h4) {
+			font-size: 1.5rem;
+		}
+
+		&:is(h5) {
+			font-size: 1.15rem;
+		}
+
+		&:is(h6) {
+			font-size: 0.75rem;
+		}
+	}
+}
+
+@media screen and(min-width: breakpoints.$laptop) {
+	.heading {
+		&:is(h1) {
+			font-size: 3.5rem;
+		}
+
+		&:is(h2) {
+			font-size: 2.75rem;
+		}
+
+		&:is(h3) {
+			font-size: 2rem;
+		}
+
+		&:is(h4) {
+			font-size: 1.75rem;
+		}
+
+		&:is(h5) {
+			font-size: 1.25rem;
+		}
+
+		&:is(h6) {
+			font-size: 0.75rem;
+		}
+	}
+}

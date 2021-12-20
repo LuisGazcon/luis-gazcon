@@ -1,0 +1,58 @@
+@use '@resources/scss/colors';
+@use '@resources/scss/breakpoints';
+
+.contact {
+	padding: var(--section-padding-y) var(--section-padding-x);
+	.heading {
+		margin-bottom: var(--section-padding-y);
+	}
+	.content {
+		display: grid;
+		.heading {
+			margin-bottom: 1rem;
+		}
+		.card {
+			.form {
+				background: colors.$white;
+			}
+		}
+	}
+}
+
+@media screen and(min-width: 0px) {
+	.contact {
+	}
+}
+
+@media screen and(min-width: breakpoints.$mobile-medium ) {
+	.contact {
+	}
+}
+
+@media screen and(min-width: breakpoints.$mobile-large) {
+	.contact {
+	}
+}
+
+@media screen and(max-width: breakpoints.$laptop - 1) {
+	.contact {
+		.content {
+			grid-template-columns: 1fr;
+			grid-row-gap: var(--section-padding-x);
+		}
+	}
+}
+
+@media screen and(min-width: breakpoints.$laptop) {
+	.contact {
+		.content {
+			grid-template-columns: 1fr 2fr;
+			grid-column-gap: calc(var(--section-padding-x) / 2);
+		}
+	}
+}
+
+@media screen and(min-width: breakpoints.$desktop) {
+	.contact {
+	}
+}

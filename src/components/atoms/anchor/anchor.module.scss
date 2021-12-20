@@ -1,0 +1,7 @@
+@use '@resources/scss/colors';
+
+.anchor {
+	font-size: 1.25rem;
+	color: colors.$primary;
+	text-decoration: underline;
+}

@@ -1,7 +1,23 @@
 import type { NextPage } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-const Index: NextPage = () => {
-	return <div>Next App</div>;
+import Index from '@/components/pages/index';
+
+const IndexPage: NextPage = () => {
+	return <Index />;
 };
 
-export default Index;
+export const getServerSideProps = async ({ locale }: { locale: string }) => ({
+	props: {
+		...(await serverSideTranslations(locale, [
+			'common',
+			'footer',
+			'landing',
+			'header',
+			'about',
+			'contact',
+		])),
+	},
+});
+
+export default IndexPage;

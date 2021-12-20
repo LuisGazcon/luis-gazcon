@@ -1,0 +1,41 @@
+@use '@resources/scss/colors';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Poppins, sans-serif;
+	appearance: none;
+
+	-webkit-tap-highlight-color: transparent;
+	-webkit-font-smoothing: antialiased;
+	-moz-appearance: none;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html {
+	font-size: 1rem;
+}
+
+body {
+	overflow-x: hidden;
+	background: colors.$base;
+}
+
+::-webkit-scrollbar {
+	background: colors.$base;
+	width: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+	background: colors.$primary;
+	border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+	width: 0.5rem;
+}
+
+:is(input, button, select) {
+	border: none;
+	outline: none;
+	background: lightgray;
+}

@@ -1,0 +1,43 @@
+@use '@resources/scss/breakpoints';
+
+.section {
+	--section-padding-x: 0;
+	--section-padding-y: 0;
+
+	padding: var(--section-padding-y) var(--section-padding-y);
+}
+
+@media screen and(min-width: 0px) {
+	.section {
+		--section-padding-x: 1rem;
+		--section-padding-y: 4rem;
+	}
+}
+
+@media screen and(min-width: breakpoints.$mobile-medium ) {
+	.section {
+		--section-padding-x: 2rem;
+		--section-padding-y: 4rem;
+	}
+}
+
+@media screen and(min-width: breakpoints.$mobile-large) {
+	.section {
+		--section-padding-x: 4rem;
+		--section-padding-y: 4rem;
+	}
+}
+
+@media screen and(min-width: breakpoints.$laptop) {
+	.section {
+		--section-padding-x: 6rem;
+		--section-padding-y: 6rem;
+	}
+}
+
+@media screen and(min-width: breakpoints.$desktop) {
+	.section {
+		--section-padding-x: 8rem;
+		--section-padding-y: 6rem;
+	}
+}

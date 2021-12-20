@@ -1,0 +1,8 @@
+@use '@resources/scss/colors';
+
+.header-toggle {
+	padding: 0.5rem;
+	height: 3rem !important;
+	width: 3rem !important;
+	color: colors.$primary;
+}

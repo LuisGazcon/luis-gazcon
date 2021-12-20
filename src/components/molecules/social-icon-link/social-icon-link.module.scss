@@ -1,0 +1,24 @@
+@use '@resources/scss/colors';
+
+.social-icon-link {
+	display: flex;
+	color: colors.$primary;
+
+	.anchor {
+		display: flex;
+		color: inherit;
+		.icon {
+			color: inherit;
+			width: 3rem;
+			height: 3rem;
+
+			transition-property: color;
+			transition-timing-function: ease-in-out;
+			transition-duration: 0.25s;
+		}
+	}
+
+	&:hover {
+		color: lighten(colors.$primary, 10%);
+	}
+}

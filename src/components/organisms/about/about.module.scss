@@ -1,0 +1,110 @@
+@use '@resources/scss/colors';
+@use '@resources/scss/breakpoints';
+@use '@resources/scss/border';
+
+.about {
+	padding: var(--section-padding-y) var(--section-padding-x);
+	background-color: colors.$base;
+
+	& > .heading {
+		margin-bottom: var(--section-padding-y);
+	}
+
+	.content {
+		.heading {
+			margin-bottom: 1rem;
+		}
+
+		.image-wrapper {
+			.image {
+				border-radius: border.$radius-large;
+			}
+		}
+		.information {
+			display: grid;
+			grid-template-columns: 1fr;
+
+			.card {
+				padding: 2rem;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.social {
+				.links {
+					display: flex;
+					flex-wrap: wrap;
+					margin-top: auto;
+					padding-top: 1rem;
+					gap: 1rem;
+				}
+			}
+		}
+	}
+}
+
+@media screen and(min-width: 0px) {
+	.about {
+		.content {
+			gap: var(--section-padding-x);
+			display: flex;
+			flex-direction: column;
+			.image-wrapper {
+				display: flex;
+				width: 100%;
+				height: 100%;
+
+				.image {
+					display: flex;
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+	}
+}
+
+@media screen and(min-width: breakpoints.$mobile-medium ) {
+	.about {
+	}
+}
+
+@media screen and(min-width: breakpoints.$mobile-large) {
+	.about {
+	}
+}
+
+@media screen and(max-width: breakpoints.$laptop - 1) {
+	.about {
+		.content {
+			.information {
+				grid-row-gap: var(--section-padding-x);
+			}
+		}
+	}
+}
+
+@media screen and(min-width: breakpoints.$laptop) {
+	.about {
+		.content {
+			display: grid;
+			grid-template-columns: auto auto;
+			grid-column-gap: var(--section-padding-x);
+
+			.information {
+				grid-row-gap: calc(var(--section-padding-x) / 2);
+			}
+
+			.image-wrapper {
+				display: flex;
+				width: 32rem;
+				height: 32rem;
+			}
+		}
+	}
+}
+
+@media screen and(min-width: breakpoints.$desktop) {
+	.about {
+	}
+}

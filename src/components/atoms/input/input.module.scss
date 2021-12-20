@@ -1,0 +1,56 @@
+@use '@resources/scss/colors';
+@use '@resources/scss/border';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	min-width: 2rem;
+	filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.15));
+
+	.label {
+		min-width: 2rem;
+		width: fit-content;
+		height: 1.5rem;
+		background: colors.$primary;
+		border-radius: border.$radius-normal border.$radius-normal 0 0;
+		color: colors.$white;
+		font-size: 0.75rem;
+		padding: 0 0.5rem;
+		align-items: center;
+		display: flex;
+		transition: 0.5s all ease-in-out;
+		word-break: keep-all;
+		word-wrap: normal;
+		box-sizing: content-box;
+		white-space: pre;
+	}
+
+	.input {
+		min-width: 2rem;
+		background: colors.$white;
+		height: 3rem;
+		overflow: visible;
+		border: 0.25rem solid colors.$primary;
+		border-radius: 0 border.$radius-normal border.$radius-normal border.$radius-normal;
+		padding: 0 1rem;
+		box-sizing: border-box;
+		color: colors.$tertiary;
+		font-size: 1rem;
+		transition: 0.25s color ease-in-out;
+		outline: none;
+	}
+
+	textarea.input {
+		resize: vertical;
+		min-height: 9rem;
+		max-height: 15rem;
+		padding: 0.5rem 1rem;
+	}
+
+	&:focus-within {
+		.input {
+			color: colors.$primary;
+		}
+	}
+}

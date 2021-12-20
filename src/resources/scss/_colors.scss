@@ -1,20 +1,22 @@
-$primary: #736ced;
-$primary-dark: #504d92;
-$primary-light: #a8a6f0;
-$secondary: #1a1a1a;
-$tertiary: #999999;
-$quarternary: #aaaaaa;
+$primary: #a855f7;
+$secondary: #374151;
+$tertiary: #6b7280;
+$quarternary: #9ca3af;
 $white: #ffffff;
 $black: #000000;
-$base: #eeeeee;
+$base: #faf5ff;
+$success: #6cc57c;
+$warning: #fbbf24;
+$danger: #ef4444;
+$disabled: #d1d5db;
 $map: (
 	primary: $primary,
-	primary-dark: $primary-dark,
-	primary-light: $primary-light,
 	secondary: $secondary,
 	tertiary: $tertiary,
 	quarternary: $quarternary,
-	white: $white,
-	black: $black,
-	base: $base,
+	success: $success,
+	warning: $warning,
+	danger: $danger,
+	'white': $white,
+	'black': $black,
 );

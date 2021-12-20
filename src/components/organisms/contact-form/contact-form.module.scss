@@ -1,0 +1,10 @@
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	gap: var(--card-padding);
+	.form {
+		display: flex;
+		flex-direction: column;
+		gap: var(--card-padding);
+	}
+}
