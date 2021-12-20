@@ -1,8 +1,7 @@
-import React, { FormEventHandler } from 'react';
+import React from 'react';
 import type { FC } from 'react';
 import { Formik, Form, Field } from 'formik';
 
-import Label from '@/components/atoms/label';
 import Heading from '@/components/atoms/heading';
 import Card from '@/components/atoms/card';
 import Input from '@/components/atoms/input';
@@ -17,7 +16,7 @@ interface ContactFormProps {}
 
 const ContactForm: FC<ContactFormProps> = ({}: ContactFormProps) => {
 	const { t } = useTranslation('contact');
-	const handleOnSubmit = (event: SubmitEvent) => {
+	const handleOnSubmit = (event: any) => {
 		event.preventDefault();
 	};
 
