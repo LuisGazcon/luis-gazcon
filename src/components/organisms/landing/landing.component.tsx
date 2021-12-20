@@ -1,13 +1,6 @@
 import React from 'react';
 import type { FC } from 'react';
-
-import {
-	faCodepen,
-	faFacebook,
-	faGithub,
-	faLinkedin,
-	faReact,
-} from '@fortawesome/free-brands-svg-icons';
+import { useTranslation } from 'next-i18next';
 
 import Section from '@/components/atoms/section';
 import Card from '@/components/atoms/card';
@@ -15,11 +8,8 @@ import Heading from '@/components/atoms/heading';
 import Paragraph from '@/components/atoms/paragraph';
 import Button from '@/components/atoms/button';
 import SocialLinks from '@/components/organisms/social-links';
-import Slider from '@/components/organisms/slider';
 
 import styles from './landing.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useTranslation } from 'next-i18next';
 
 interface LandingProps {}
 
