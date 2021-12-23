@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
 	i18n: {
 		locales: ['en', 'es'],
@@ -6,8 +8,8 @@ module.exports = {
 			en: 'en',
 			es: 'es',
 		},
+		localePath: path.join(__dirname, 'public', 'locales'),
 	},
-	localeSubpath: {},
 	reloadOnPrerender: true,
 	react: { useSuspense: false },
 };
