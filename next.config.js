@@ -6,25 +6,22 @@ module.exports = {
 	i18n: i18n,
 	poweredByHeader: false,
 	reactStrictMode: true,
+	swcMinify: false,
 	sassOptions: {
 		importer: new SassAlias({
 			'@resources': path.join(__dirname, 'src', 'resources'),
 		}).getImporter(),
 	},
 	webpack: (config) => {
-		config.module.rules[3].oneOf.forEach((moduleLoader, i) => {
+		config.module.rules[2].oneOf.forEach((moduleLoader) => {
 			Array.isArray(moduleLoader.use) &&
 				moduleLoader.use.forEach((l) => {
-					if (l.loader.includes('\\css-loader') && !l.loader.includes('postcss-loader')) {
-						const { getLocalIdent, ...others } = l.options.modules;
-
+					if (!l.loader) return;
+					if (l.loader.includes('css-loader') && !l.loader.includes('postcss-loader')) {
+						l.options.modules.exportLocalsConvention = 'camelCase';
 						l.options = {
 							...l.options,
-							modules: {
-								...others,
-								localIdentName: '[hash:base64:8]',
-								exportLocalsConvention: 'camelCase',
-							},
+							modules: l.options.modules,
 						};
 					}
 				});
