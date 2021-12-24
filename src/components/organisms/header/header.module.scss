@@ -34,6 +34,10 @@ $header-box-shadow: 0 0 2rem 0 rgba(colors.$quarternary, 50%);
 		line-height: var(--header-height);
 
 		color: colors.$primary;
+
+		&::after {
+			content: none;
+		}
 	}
 	.header-toggle {
 		position: fixed;
