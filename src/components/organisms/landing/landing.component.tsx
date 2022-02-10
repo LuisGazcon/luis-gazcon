@@ -34,9 +34,7 @@ const Landing: FC<LandingProps> = ({}) => {
 				</div>
 			</Card>
 			<div className={styles.right}>
-				<div className={styles.social}>
-					<SocialLinks />
-				</div>
+				<SocialLinks className={styles.social} />
 			</div>
 		</Section>
 	);

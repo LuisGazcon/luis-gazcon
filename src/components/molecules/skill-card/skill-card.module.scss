@@ -2,11 +2,11 @@
 @use '@resources/scss/breakpoints';
 
 $primary-dark: darken(colors.$primary, 15%);
+
 .wrapper {
 	display: flex;
 	flex-direction: column;
 	z-index: 0;
-	overflow: hidden;
 	.card {
 		display: flex;
 		flex-direction: column;
@@ -16,7 +16,7 @@ $primary-dark: darken(colors.$primary, 15%);
 		overflow: hidden;
 		background: linear-gradient(to bottom, colors.$primary, $primary-dark);
 		color: colors.$white;
-		z-index: 3;
+		z-index: 10;
 		transition: 0.5s all ease-in-out;
 
 		.icon {
@@ -37,7 +37,8 @@ $primary-dark: darken(colors.$primary, 15%);
 			height: 24rem;
 			width: 24rem;
 			z-index: 0;
-			transform: translate(30%, 15%) rotate(-15deg);
+			transform: translate(30%, 20%) rotate(-15deg);
+			opacity: 0.75;
 		}
 
 		.content {
@@ -55,16 +56,5 @@ $primary-dark: darken(colors.$primary, 15%);
 		&:hover {
 			box-shadow: 0 0 4rem 0 rgba(colors.$primary, 0.5);
 		}
-	}
-}
-
-@media screen and(max-width: breakpoints.$laptop - 1) {
-	.skill-card {
-		background: #000;
-	}
-}
-
-@media screen and(min-width: breakpoints.$laptop) {
-	.skill-card {
 	}
 }

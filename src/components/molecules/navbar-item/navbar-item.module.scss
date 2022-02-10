@@ -6,17 +6,25 @@
 	display: flex;
 	align-items: center;
 
-	a {
+	& > * {
 		display: flex;
 		text-decoration: none;
 		color: inherit;
 		align-items: center;
+	}
+	.icon {
+		margin-right: 1rem;
 	}
 }
 
 @media screen and(max-width: breakpoints.$mobile-large - 1) {
 	.navbar-item {
 		justify-content: center;
+
+		.icon {
+			height: 1.5rem;
+			width: 1.5rem;
+		}
 	}
 }
 
@@ -25,15 +33,10 @@
 		height: 3rem;
 		justify-content: left;
 
-		a {
+		& > * {
 			display: flex;
 			height: 100%;
 			align-items: center;
-			.icon {
-				margin-right: 1rem;
-				height: 1.5rem;
-				width: 1.5rem;
-			}
 		}
 	}
 }
@@ -41,7 +44,6 @@
 @media screen and(min-width: breakpoints.$laptop) {
 	.navbar-item {
 		padding: 0 1rem;
-		margin-left: 1rem;
 		height: 2rem;
 		border-radius: 1rem;
 		cursor: pointer;
@@ -55,10 +57,9 @@
 			color: colors.$white;
 		}
 
-		a {
-			.icon {
-				margin-right: 1rem;
-			}
+		.icon {
+			height: 1rem;
+			width: 1rem;
 		}
 	}
 }

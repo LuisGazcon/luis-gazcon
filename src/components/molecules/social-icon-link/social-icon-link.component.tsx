@@ -16,6 +16,7 @@ interface SocialIconLink {
 	className?: string;
 	href?: string;
 	target?: string;
+	label?: string;
 }
 
 const SocialIconLink: FC<SocialIconLink> = ({
@@ -23,6 +24,7 @@ const SocialIconLink: FC<SocialIconLink> = ({
 	href = '#',
 	icon,
 	target,
+	label,
 }: SocialIconLink) => {
 	const classNames = join(styles.socialIconLink, className);
 
@@ -30,6 +32,8 @@ const SocialIconLink: FC<SocialIconLink> = ({
 		<span className={classNames}>
 			<Anchor className={styles.anchor} href={href} target={target}>
 				<FontAwesomeIcon icon={icon} className={styles.icon} />
+
+				<span className={styles.label}>{label}</span>
 			</Anchor>
 		</span>
 	);

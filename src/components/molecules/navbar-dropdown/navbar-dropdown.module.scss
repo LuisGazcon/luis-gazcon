@@ -1,0 +1,104 @@
+@use '@resources/scss/breakpoints';
+@use '@resources/scss/colors';
+@use '@resources/scss/border';
+
+.navbar-dropdown {
+	.dropdown {
+		.dropdown-list {
+			.dropdown-item {
+				display: flex;
+				align-items: center;
+				color: colors.$white;
+				font-weight: 600;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+@media screen and(max-width: breakpoints.$laptop - 1) {
+	.navbar-dropdown {
+		display: flex;
+		flex-direction: column;
+		.navbar-item {
+			flex-grow: 1;
+			flex-shrink: 0;
+		}
+
+		.dropdown {
+			height: 100% !important;
+			min-height: fit-content !important;
+
+			.dropdown-list {
+				list-style: none;
+				display: grid;
+				grid-auto-flow: row;
+				grid-row-gap: 0.5rem;
+				margin-top: 0.5rem;
+				.dropdown-item {
+					height: 3rem;
+					background: colors.$primary;
+					border-radius: border.$radius-large;
+					padding: 0 1rem;
+				}
+			}
+		}
+	}
+}
+
+@media screen and(min-width: breakpoints.$laptop) {
+	.navbar-dropdown {
+		position: relative;
+
+		.navbar-item {
+			margin: 0;
+		}
+
+		.dropdown {
+			$offset: -1rem;
+			position: absolute;
+			overflow: hidden;
+			right: $offset;
+			left: $offset;
+			margin-top: 0.5rem;
+
+			border-radius: border.$radius-normal;
+			box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+			background: colors.$primary;
+		}
+
+		.dropdown > .dropdown-list {
+			padding: 0.5rem;
+		}
+
+		.dropdown > .dropdown-list > .dropdown-item {
+			padding: 0 0.5rem;
+			height: 2rem;
+			color: colors.$white;
+			font-weight: 600;
+			border-radius: border.$radius-small;
+
+			transition-property: background, color, transform;
+			transition-duration: 0.25s, 0.25s, 0.125s;
+			transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
+
+			&:focus {
+				outline: dashed colors.$white 0.125rem;
+			}
+
+			&:hover {
+				background: colors.$white;
+				color: colors.$primary;
+			}
+
+			&:active {
+				transform: scale(0.75);
+			}
+		}
+	}
+
+	.navbar-dropdown:focus {
+		outline: dashed colors.$primary 0.125rem;
+		border-radius: 1rem;
+	}
+}

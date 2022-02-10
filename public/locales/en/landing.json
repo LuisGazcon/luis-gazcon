@@ -1,10 +1,11 @@
 {
+	"what-do-i-do": "What do i do?",
 	"view-projects": "View projects",
 	"contact": "Contact",
 	"front-end-development": "Front-End Development",
-	"front-end-development-description": "Create modern web applications using the latest technologies, through good practices, clean code and tools that speed up the development process.",
+	"front-end-development-description": "Create client-side applications which adapt to the ecosystem in which they will operate, with compatibility with most devices and browsers as a priority, this will be carried out using technologies such as HTML, CSS, JavaScript, React.js, Next.js and Webpack.",
 	"back-end-development": "Back-End Development",
-	"back-end-development-description": "crear aplicaciones del lado del servidor utilizando Node.js, permitiendo el desarrollo de aplicaciones escalables, eficientes y flexibles mediante el uso de frameworks modernos como Nest.js y Express.",
+	"back-end-development-description": "Develop server-side software that is secure, resilient, sustainable and scalable, this by using technologies related to Node.js, such as: TypeScript, Express.js, Nest.js, Fastify and Passport.",
 	"pixel-perfect-interfaces": "Pixel-Perfect Interfaces",
-	"pixel-perfect-interfaces-description": "No se que poner jsjsjd"
+	"pixel-perfect-interfaces-description": "Code designs and interfaces which provide a pleasant user experience, making use of semantic and accessibility strategies through tools such as HTML, CSS and SASS."
 }

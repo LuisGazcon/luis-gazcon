@@ -35,7 +35,18 @@
 		}
 	}
 
-	z-index: -10;
+	.follow-me-on {
+		display: flex;
+		flex-direction: column;
+
+		& > * {
+			line-height: 2.5rem;
+			font-weight: 500;
+			color: colors.$white;
+		}
+	}
+
+	z-index: 0;
 	padding: var(--footer-padding-y) var(--footer-padding-x);
 }
 

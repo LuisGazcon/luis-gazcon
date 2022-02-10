@@ -14,9 +14,9 @@ import { join } from '@/global/utils/classnames';
 import styles from './skill-card.module.scss';
 
 interface SkillCardProps {
-	children?: ReactNode;	
+	children?: ReactNode;
 	className?: string;
-	icon?: IconDefinition;
+	icon: IconDefinition;
 	title?: string;
 	highlighted?: boolean;
 }
@@ -36,11 +36,10 @@ const SkillCard: FC<SkillCardProps> = ({
 		rotateX: 0,
 		y: 0,
 		x: 0,
-	}));	
+	}));
 
 	const bind = useGesture({
-		onHover: ({ active }) => api.start({ scale: active ? 1.05 : 1 }),
-		onMove: ({ xy, type }) => {
+		onMove: ({ xy, type, active, ...props }) => {
 			if (ref.current) {
 				const entered = type !== 'pointerleave';
 				const rect = ref.current.getBoundingClientRect();
@@ -48,11 +47,13 @@ const SkillCard: FC<SkillCardProps> = ({
 				const height = ref.current.clientHeight;
 				const x = xy[0] - rect.left - width / 2;
 				const y = xy[1] - rect.top - height / 2;
+
 				api.start({
 					rotateX: entered ? -(x / width) * 20 : 0,
 					rotateY: entered ? (y / height) * 20 : 0,
-					x: entered ? x / 5 : 0,
-					y: entered ? y / 5 : 0,
+					x: entered && active ? x / 5 : 0,
+					y: entered && active ? y / 5 : 0,
+					scale: entered ? 1.05 : 1,
 				});
 			}
 		},
@@ -64,8 +65,8 @@ const SkillCard: FC<SkillCardProps> = ({
 				<Heading level='4' className={styles.title}>
 					{title}
 				</Heading>
-				<FontAwesomeIcon icon={icon as IconDefinition} className={styles.icon} />
-				<FontAwesomeIcon icon={icon as IconDefinition} className={styles.backgroundIcon} />
+				<FontAwesomeIcon icon={icon} className={styles.icon} />
+				<FontAwesomeIcon icon={icon} className={styles.backgroundIcon} />
 				<div className={styles.content}>{children}</div>
 			</Card>
 		</animated.div>

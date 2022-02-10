@@ -1,6 +1,6 @@
 import React from 'react';
 import type { FC } from 'react';
-import { faFacebook, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faGithub, faLinkedin, faNpm } from '@fortawesome/free-brands-svg-icons';
 
 import Card from '@/components/atoms/card';
 import Heading from '@/components/atoms/heading';
@@ -12,6 +12,7 @@ import { join } from '@/global/utils/classnames';
 
 import styles from './about.module.scss';
 import { useTranslation } from 'next-i18next';
+import { faCode } from '@fortawesome/free-solid-svg-icons';
 
 interface AboutProps {
 	className?: string;
@@ -22,7 +23,7 @@ const About: FC<AboutProps> = ({ className }: AboutProps) => {
 	const { t } = useTranslation('about');
 
 	return (
-		<Section className={classNames}>
+		<Section className={classNames} id='about'>
 			<Heading className={styles.heading} level='3'>
 				{t('about')}
 			</Heading>
@@ -43,6 +44,9 @@ const About: FC<AboutProps> = ({ className }: AboutProps) => {
 						</Heading>
 						<Paragraph>{t('where-you-can-reach-me-description')}</Paragraph>
 						<div className={styles.links}>
+							<SocialLink icon={faNpm} href='https://www.npmjs.com/~luis-gazcon' target='_blank'>
+								Linkedin
+							</SocialLink>
 							<SocialLink
 								icon={faLinkedin}
 								href='https://www.linkedin.com/in/luis-gazcon'
@@ -50,12 +54,8 @@ const About: FC<AboutProps> = ({ className }: AboutProps) => {
 							>
 								Linkedin
 							</SocialLink>
-							<SocialLink
-								icon={faFacebook}
-								href='https://www.facebook.com/LuisGazcon'
-								target='_blank'
-							>
-								Facebook
+							<SocialLink icon={faCode} href='https://codesandbox.io/u/LuisGazcon' target='_blank'>
+								CodeSandbox
 							</SocialLink>
 							<SocialLink icon={faGithub} href='https://www.github.com/LuisGazcon' target='_blank'>
 								GitHub

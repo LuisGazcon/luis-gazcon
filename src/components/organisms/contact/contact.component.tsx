@@ -21,7 +21,7 @@ const Contact: FC<ContactProps> = ({ className }: ContactProps) => {
 	const { t } = useTranslation('contact');
 
 	return (
-		<Section className={classNames}>
+		<Section className={classNames} id='contact'>
 			<Heading className={styles.heading} level='3'>
 				{t('contact')}
 			</Heading>

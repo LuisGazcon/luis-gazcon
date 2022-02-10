@@ -1,0 +1,11 @@
+$colors: (
+	danger: #ff0000,
+);
+
+.feedback {
+	@each $name, $value in $colors {
+		&.#{$name} .message {
+			color: $value;
+		}
+	}
+}

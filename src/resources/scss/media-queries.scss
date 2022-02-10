@@ -1,0 +1,42 @@
+@use '@resources/scss/breakpoints';
+@use '@resources/scss/colors';
+/*
+$mobile-medium: 360px;
+$mobile-large: 420px;
+$mobile-small: 320px;
+$tablet: 720px;
+$laptop: 1080px;
+$desktop: 1440px;
+$widescreen: 1920px;
+$ultra-widescreen: 2560px;
+*/
+
+@media screen and (max-width: breakpoints.$desktop) {
+	html {
+		font-size: 0.85rem;
+	}
+}
+
+@media screen and(max-width: breakpoints.$laptop - 1) {
+	html {
+		font-size: 1rem;
+	}
+}
+
+@media screen and(min-width: breakpoints.$desktop) {
+	body {
+		overflow: visible !important;
+	}
+}
+
+@media screen and(min-width: breakpoints.$widescreen) {
+	body {
+		--body-margin-x: 20%;
+		margin: 0 var(--body-margin-x);
+		background: darken(colors.$white, 10%);
+	}
+
+	#__next {
+		background: colors.$base;
+	}
+}

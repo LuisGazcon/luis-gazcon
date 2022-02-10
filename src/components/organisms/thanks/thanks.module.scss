@@ -1,0 +1,31 @@
+@use '@resources/scss/colors';
+
+.thanks {
+	padding: var(--section-padding-y) var(--section-padding-x);
+	display: flex;
+	min-height: 100vh;
+	.content {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		padding: 4rem !important;
+
+		.slogan {
+			color: colors.$tertiary;
+			&::after {
+				content: none;
+			}
+		}
+
+		.description {
+			color: colors.$quarternary;
+		}
+
+		.side {
+			flex: 1;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}

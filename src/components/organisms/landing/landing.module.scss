@@ -144,19 +144,21 @@
 			box-shadow: 0 0 4rem 0 rgba(colors.$quarternary, 0.25);
 
 			.presentation {
+				:is(.title, .subtitle, .slogan) {
+					white-space: nowrap;
+				}
+
 				.call-to-action {
 					margin-top: 2rem;
 					grid-column-gap: 1rem;
 					display: grid;
-					grid-template-columns: 4fr 6fr;
+					grid-template-columns: 1fr 1fr;
 				}
 			}
 			.picture {
 				display: flex;
 				flex-direction: column;
 				height: 100%;
-				.slider {
-				}
 			}
 		}
 	}
@@ -166,6 +168,19 @@
 	.landing {
 		.content {
 			align-items: center;
+			.presentation {
+				.call-to-action {
+					grid-template-columns: 4fr 6fr;
+				}
+			}
+		}
+	}
+}
+
+@media screen and(min-width: breakpoints.$widescreen) {
+	.landing {
+		.right {
+			right: var(--body-margin-x);
 		}
 	}
 }

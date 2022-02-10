@@ -1,0 +1,11 @@
+@use '@resources/scss/colors';
+
+.navbar-link {
+	.anchor {
+		text-decoration: none;
+	}
+
+	&:focus-within .navbar-item {
+		outline: dashed 0.125rem colors.$primary;
+	}
+}

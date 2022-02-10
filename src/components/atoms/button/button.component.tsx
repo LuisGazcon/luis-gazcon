@@ -13,7 +13,14 @@ interface ButtonProps {
 	size?: 'small' | 'normal' | 'large';
 }
 
-const Button: FC<ButtonProps> = ({ className, children, variant, color, size, ...props }) => {
+const Button: FC<ButtonProps & JSX.IntrinsicElements['button']> = ({
+	className,
+	children,
+	variant,
+	color,
+	size,
+	...props
+}) => {
 	const classNames = join(
 		styles.button,
 		styles[`variant-${variant}`],

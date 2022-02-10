@@ -10,9 +10,17 @@ interface SectionProps {
 	className?: string;
 }
 
-const Section: FC<SectionProps> = ({ children, className }: SectionProps) => {
+const Section: FC<SectionProps & JSX.IntrinsicElements['section']> = ({
+	children,
+	className,
+	...props
+}) => {
 	const classNames = join(styles.section, className);
-	return <section className={classNames}>{children}</section>;
+	return (
+		<section className={classNames} {...props}>
+			{children}
+		</section>
+	);
 };
 
 export default Section;

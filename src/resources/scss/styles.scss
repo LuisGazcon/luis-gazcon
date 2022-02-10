@@ -5,8 +5,10 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: Poppins, sans-serif;
+	font-display: swap;
 	appearance: none;
 
+	outline: none;
 	-webkit-tap-highlight-color: transparent;
 	-webkit-font-smoothing: antialiased;
 	-moz-appearance: none;
@@ -15,6 +17,7 @@
 
 html {
 	font-size: 1rem;
+	scroll-behavior: smooth;
 }
 
 body {

@@ -1,28 +1,47 @@
 import React, { Fragment } from 'react';
 import type { FC } from 'react';
 
-import { faCodepen, faFacebook, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import {
+	faCodepen,
+	faFacebook,
+	faGithub,
+	faLinkedin,
+	faNpm,
+} from '@fortawesome/free-brands-svg-icons';
 
 import SocialIconLink from '@/components/molecules/social-icon-link';
+import { join } from '@/global/utils/classnames';
+import styles from './social-links.module.scss';
+import { faCode } from '@fortawesome/free-solid-svg-icons';
 
-interface SocialLinksProps {}
+interface SocialLinksProps {
+	className?: string;
+}
 
-const SocialLinks: FC<SocialLinksProps> = ({}: SocialLinksProps) => {
+const SocialLinks: FC<SocialLinksProps> = ({ className }) => {
+	const classNames = join(styles.socialLinks, className);
+
 	return (
-		<Fragment>
+		<ul className={classNames}>
 			<SocialIconLink
-				icon={faFacebook}
+				icon={faNpm}
 				target='blank'
-				href='https://www.facebook.com/LuisGazconz'
+				href='https://www.npmjs.com/~luis-gazcon'
+				label='npm'
 			/>
-			<SocialIconLink icon={faGithub} target='blank' href='https://www.github.com/LuisGazcon' />
+			<SocialIconLink
+				icon={faGithub}
+				target='blank'
+				href='https://www.github.com/LuisGazcon'
+				label='GitHub'
+			/>
 			<SocialIconLink
 				icon={faLinkedin}
 				target='blank'
 				href='https://www.linkedin.com/in/luis-gazcon'
+				label='LinkedIn'
 			/>
-			<SocialIconLink icon={faCodepen} target='blank' href='https://www.codepen.io/LuisGazcon' />
-		</Fragment>
+		</ul>
 	);
 };
 

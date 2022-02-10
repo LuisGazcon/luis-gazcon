@@ -6,5 +6,26 @@
 	"subject": "Asunto",
 	"e-mail": "Correo electrónico",
 	"message": "Mensaje",
-	"submit": "Enviar"
+	"submit": "Enviar",
+	"subject-placeholder": "Escribe el asunto aquí",
+	"e-mail-placeholder": "ejemplo@email.com",
+	"message-placeholder": "Cuéntame sobre tu gran idea",
+	"form": {
+		"messages": {
+			"email": {
+				"invalid": "El correo electrónico no es válido.",
+				"required": "Es necesario proporcionar un correo electrónico.",
+				"max-length": "El correo electrónico es demasiado largo."
+			},
+			"subject": {
+				"required": "Es necesario proporcionar un asunto.",
+				"max-length": "El asunto proporcionado es demasiado largo.",
+				"min-length": "El asunto proporcionado es demasiado corto."
+			},
+			"message": {
+				"required": "Intenta escribir algún mensaje.",
+				"min-length": "Intenta escribir algo más en el mensaje."
+			}
+		}
+	}
 }

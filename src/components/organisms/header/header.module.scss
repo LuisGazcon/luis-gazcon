@@ -14,7 +14,7 @@ $header-box-shadow: 0 0 2rem 0 rgba(colors.$quarternary, 50%);
 	top: 0;
 	left: 0;
 	right: 0;
-	overflow: hidden;
+
 	z-index: 10;
 
 	display: flex;
@@ -25,6 +25,15 @@ $header-box-shadow: 0 0 2rem 0 rgba(colors.$quarternary, 50%);
 	backdrop-filter: blur(16px) !important;
 	height: 4rem;
 
+	.anchor {
+		text-decoration: none;
+
+		&:focus > .brand {
+			text-decoration: underline;
+			text-decoration-style: dashed;
+		}
+	}
+
 	.brand {
 		display: flex;
 		flex-shrink: 0;
@@ -32,8 +41,8 @@ $header-box-shadow: 0 0 2rem 0 rgba(colors.$quarternary, 50%);
 
 		height: var(--header-height);
 		line-height: var(--header-height);
-
 		color: colors.$primary;
+		text-decoration: inherit;
 
 		&::after {
 			content: none;
@@ -93,6 +102,7 @@ $header-box-shadow: 0 0 2rem 0 rgba(colors.$quarternary, 50%);
 }
 @media screen and(max-width: breakpoints.$laptop - 1) {
 	.header {
+		overflow: hidden;
 		padding-bottom: var(--header-x-padding);
 		.social {
 			margin-top: 1rem;
@@ -145,5 +155,15 @@ $header-box-shadow: 0 0 2rem 0 rgba(colors.$quarternary, 50%);
 		--header-height: 6rem;
 		--header-x-padding: 8rem;
 		--header-y-padding: 0;
+	}
+}
+
+@media screen and(min-width: breakpoints.$widescreen) {
+	.header {
+		--header-height: 6rem;
+		--header-x-padding: 8rem;
+		--header-y-padding: 0;
+		left: var(--body-margin-x);
+		right: var(--body-margin-x);
 	}
 }

@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import type { FC, ReactNode } from 'react';
+import React, { Component, Fragment, ElementType } from 'react';
+import type { FC, ReactNode, MouseEventHandler } from 'react';
 import Link from 'next/link';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,29 +12,27 @@ import styles from './navbar-item.module.scss';
 interface NavbarItemProps {
 	children?: ReactNode | string;
 	className?: string;
-	href?: string;
-	target?: string;
 	icon?: IconDefinition;
+	onClick?: MouseEventHandler;
+	as?: ElementType;
 }
 
 const NavbarItem: FC<NavbarItemProps> = ({
 	children,
 	className,
-	href,
+	onClick,
 	icon,
+	as,
 	...props
 }: NavbarItemProps) => {
 	const classNames = join(styles.navbarItem, className);
+	const Element = as ?? 'li';
 
 	return (
-		<li className={classNames}>
-			<Link href={href || ''}>
-				<a {...props}>
-					{icon && <FontAwesomeIcon className={styles.icon} icon={icon} />}
-					<Fragment>{children}</Fragment>
-				</a>
-			</Link>
-		</li>
+		<Element className={classNames} onClick={onClick ?? undefined}>
+			{icon && <FontAwesomeIcon className={styles.icon} icon={icon} />}
+			<Fragment>{children}</Fragment>
+		</Element>
 	);
 };
 

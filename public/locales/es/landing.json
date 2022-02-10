@@ -3,9 +3,9 @@
 	"view-projects": "Ver proyectos",
 	"contact": "Contacto",
 	"front-end-development": "Desarrollo del lado del cliente.",
-	"front-end-development-description": "Crear aplicaciones web modernas, utilizando tecnologías recientes como React.js, enfocandose en el rendimiendo y accesibilidad, manteniendo un diseño responsivo capaz de adaptarse a la mayoría de dispositivos existentes.",
+	"front-end-development-description": "Realizar aplicaciones del lado del cliente las cuales se adapten al ecosistema en el cuál se desenvolverán, teniendo como prioridad la compatibilidad con la mayoría de dispositivos y navegadores, esto será llevado a cabo usando tecnologías tales como HTML, CSS, JavaScript, React.js, Next.js y Webpack.",
 	"back-end-development": "Desarrollo del lado del servidor.",
-	"back-end-development-description": "Crear aplicaciones del lado del servidor utilizando Node.js, permitiendo el desarrollo de aplicaciones escalables, eficientes y flexibles mediante el uso de frameworks modernos como Nest.js y Express.",
+	"back-end-development-description": "Desarrollar software del lado del servidor que cuente con las características de ser seguro, resiliente, sostenible y escalable, esto mediante el uso de tecnologías relacionadas con Node.js, tales como: TypeScript, Express.js, Nest.js, Fastify y Passport.",
 	"pixel-perfect-interfaces": "Interfaces de Píxel-Perfecto.",
-	"pixel-perfect-interfaces-description": "No se que poner jsjsjd"
+	"pixel-perfect-interfaces-description": "Codificar de forma precisa diseños e interfaces las cuales provean una experiencia agradable al usuario, haciendo uso de estrategias de semántica y accesibilidad mediante herramientas como HTML, CSS y SASS."
 }

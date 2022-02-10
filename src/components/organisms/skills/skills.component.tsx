@@ -24,7 +24,7 @@ const Skills: FC<SkillsProps> = ({}: SkillsProps) => {
 	const { t } = useTranslation('landing');
 
 	return (
-		<Section className={styles.skills}>
+		<Section className={styles.skills} id='skills'>
 			<Heading className={styles.heading} level='3'>
 				{t('what-do-i-do')}
 			</Heading>

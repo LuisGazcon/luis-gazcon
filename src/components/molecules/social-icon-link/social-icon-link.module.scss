@@ -3,15 +3,28 @@
 .social-icon-link {
 	display: flex;
 	color: colors.$primary;
-
+	transition-property: color;
+	transition-timing-function: ease-in-out;
+	transition-duration: 0.25s;
 	.anchor {
 		display: flex;
+		flex-direction: column;
+		align-items: center;
 		color: inherit;
+		text-decoration: none;
+		font-size: 0.85rem;
+
 		.icon {
 			color: inherit;
 			width: 3rem;
 			height: 3rem;
+		}
 
+		.label {
+			margin-top: 0.5rem;
+		}
+
+		& > *:is(.icon, .label) {
 			transition-property: color;
 			transition-timing-function: ease-in-out;
 			transition-duration: 0.25s;
