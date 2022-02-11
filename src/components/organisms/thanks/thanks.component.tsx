@@ -33,7 +33,7 @@ const Thanks: FC<ThanksProps> = ({}) => {
 				<div className={styles.side}>
 					<Heading level='1'>Thank you!</Heading>
 					<Heading level='3' className={styles.slogan}>
-						You'll have an answer as soon as possible!
+						You&aposll have an answer as soon as possible!
 					</Heading>
 					<Paragraph className={styles.description}>
 						Be patient, a message will arrive {contactEmail} with a work propouse.

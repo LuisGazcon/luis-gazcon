@@ -19,7 +19,9 @@ const NavbarLink: FC<NavbarLinkProps> = ({ children, href, icon, target }) => {
 		<li className={styles.navbarLink}>
 			<Link href={href}>
 				<a href={href} target={target} className={styles.anchor} tabIndex={0}>
-					<NavbarItem as='span' icon={icon} children={children} className={styles.navbarItem} />
+					<NavbarItem as='span' icon={icon} className={styles.navbarItem}>
+						{children}
+					</NavbarItem>
 				</a>
 			</Link>
 		</li>
