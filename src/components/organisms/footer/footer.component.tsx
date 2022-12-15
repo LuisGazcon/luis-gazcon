@@ -2,7 +2,7 @@ import React from 'react';
 import type { FC } from 'react';
 import { useTranslation } from 'next-i18next';
 
-import Anchor from '@/components/atoms/anchor';
+import { Anchor } from '@/components/atoms/anchor/anchor.component';
 import Heading from '@/components/atoms/heading';
 import Paragraph from '@/components/atoms/paragraph';
 
@@ -53,3 +53,4 @@ const Footer: FC<FooterProps> = ({}) => {
 };
 
 export default Footer;
+

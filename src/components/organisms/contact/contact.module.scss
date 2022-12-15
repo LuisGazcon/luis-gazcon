@@ -8,6 +8,7 @@
 	}
 	.content {
 		display: grid;
+		grid-gap: 2rem;
 		.heading {
 			margin-bottom: 1rem;
 		}
@@ -38,7 +39,6 @@
 	.contact {
 		.content {
 			grid-template-columns: 1fr;
-			grid-row-gap: var(--section-padding-x);
 		}
 	}
 }
@@ -47,7 +47,6 @@
 	.contact {
 		.content {
 			grid-template-columns: 1fr 2fr;
-			grid-column-gap: calc(var(--section-padding-x) / 2);
 		}
 	}
 }

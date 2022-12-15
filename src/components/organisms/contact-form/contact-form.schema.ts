@@ -2,7 +2,13 @@ import * as Yup from 'yup';
 
 import type { TFunction } from 'next-i18next';
 
-export const getFormSchema = (t: TFunction) =>
+export const contactFormInitialValues = {
+	email: '',
+	subject: '',
+	message: '',
+};
+
+export const getContactFormSchema = (t: TFunction) =>
 	Yup.object({
 		email: Yup.string()
 			.email(t('form.messages.email.invalid'))
@@ -16,3 +22,5 @@ export const getFormSchema = (t: TFunction) =>
 			.max(256, t('form.messages.message.max-length'))
 			.required(t('form.messages.message.required')),
 	});
+
+export type ContactFormValues = typeof contactFormInitialValues;

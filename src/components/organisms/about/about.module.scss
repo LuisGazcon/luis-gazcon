@@ -2,7 +2,71 @@
 @use '@resources/scss/breakpoints';
 @use '@resources/scss/border';
 
+$primary-dark: darken(colors.$primary, 15%);
+$hightlighted-background: linear-gradient(to bottom, colors.$primary, $primary-dark);
+
 .about {
+	padding: var(--section-padding-y) var(--section-padding-x);
+	background-color: colors.$base;
+
+	& > .heading {
+		margin-bottom: var(--section-padding-y);
+	}
+}
+
+.content {
+	.grid {
+		display: grid;
+		grid-gap: 2rem;
+
+		.card {
+			aspect-ratio: 1;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			p {
+				font-size: 1rem;
+			}
+		}
+
+		.image {
+			padding: 0;
+			overflow: hidden;
+		}
+
+		.card {
+			aspect-ratio: 1;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			p {
+				font-size: 1rem;
+			}
+		}
+	}
+}
+
+@media screen and(min-width: breakpoints.$laptop) {
+	.content {
+		.grid {
+			.card {
+			}
+		}
+	}
+}
+
+@media screen and(min-width: breakpoints.$desktop) {
+	.content {
+		.grid {
+			display: grid;
+			grid-gap: 2rem;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: 1fr 1fr;
+		}
+	}
+}
+
+/* .about {
 	padding: var(--section-padding-y) var(--section-padding-x);
 	background-color: colors.$base;
 
@@ -21,13 +85,14 @@
 			}
 		}
 		.information {
-			display: grid;
-			grid-template-columns: 1fr;
+			display: flex;
+			gap: 2rem;
 
 			.card {
 				padding: 2rem;
 				display: flex;
 				flex-direction: column;
+				flex: 1;
 			}
 
 			.social {
@@ -46,9 +111,10 @@
 @media screen and(min-width: 0px) {
 	.about {
 		.content {
-			gap: var(--section-padding-x);
+			gap: 2rem;
 			display: flex;
 			flex-direction: column;
+			flex: 1;
 			.image-wrapper {
 				display: flex;
 				width: 100%;
@@ -63,48 +129,16 @@
 		}
 	}
 }
+*/
 
-@media screen and(min-width: breakpoints.$mobile-medium ) {
-	.about {
-	}
-}
-
-@media screen and(min-width: breakpoints.$mobile-large) {
-	.about {
-	}
-}
-
-@media screen and(max-width: breakpoints.$laptop - 1) {
-	.about {
-		.content {
-			.information {
-				grid-row-gap: var(--section-padding-x);
-			}
-		}
-	}
-}
-
-@media screen and(min-width: breakpoints.$laptop) {
-	.about {
-		.content {
-			display: grid;
-			grid-template-columns: auto auto;
-			grid-column-gap: var(--section-padding-x);
-
-			.information {
-				grid-row-gap: calc(var(--section-padding-x) / 2);
-			}
-
-			.image-wrapper {
-				display: flex;
-				width: 32rem;
-				height: 32rem;
-			}
-		}
-	}
-}
-
+/*
 @media screen and(min-width: breakpoints.$desktop) {
 	.about {
+		.content {
+			.information {
+				flex-direction: row;
+			}
+		}
 	}
 }
+ */

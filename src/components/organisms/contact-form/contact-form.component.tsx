@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import type { FC } from 'react';
+import React, { useEffect, useState, FC } from 'react';
 import { useRouter } from 'next/router';
-import { Formik, Form, Field, FormikProps, FormikState } from 'formik';
+import { Formik, Form, Field, FormikProps } from 'formik';
 import { useTranslation } from 'next-i18next';
 
 import { FORMSPREE_URL } from '@/global/constants/contact';
@@ -9,22 +8,21 @@ import { FORMSPREE_URL } from '@/global/constants/contact';
 import Heading from '@/components/atoms/heading';
 import Card from '@/components/atoms/card';
 import Input from '@/components/atoms/input';
-import Button from '@/components/atoms/button';
 import Feedback from '@/components/molecules/feedback';
+import SpinnerButton from '@/components/molecules/spinner-button';
 
+import { contactFormInitialValues, getContactFormSchema } from './contact-form.schema';
+import type { ContactFormValues } from './contact-form.schema';
 import styles from './contact-form.module.scss';
 
-import { getFormSchema } from './contact-form.schema';
-
-const INITIAL_VALUES = {
-	subject: '',
-	email: '',
-	message: '',
+export type ContactFormProps = FormikProps<ContactFormValues> & {
+	loading: boolean;
 };
 
-const ContactForm: FC<FormikProps<typeof INITIAL_VALUES>> = ({ errors, touched }) => {
+const ContactForm: FC<ContactFormProps> = ({ loading, touched, errors, values }) => {
 	const { t } = useTranslation('contact');
-	const getMessageIfTouched = (name: keyof typeof INITIAL_VALUES) => {
+
+	const getMessageIfTouched = (name: keyof ContactFormValues) => {
 		return touched[name] && errors[name] ? errors[name] : '';
 	};
 
@@ -61,7 +59,9 @@ const ContactForm: FC<FormikProps<typeof INITIAL_VALUES>> = ({ errors, touched }
 						textarea
 					/>
 				</Feedback>
-				<Button type='submit'>{t('submit')}</Button>
+				<SpinnerButton type='submit' loading={loading}>
+					{t('submit')}
+				</SpinnerButton>
 			</Form>
 		</Card>
 	);
@@ -69,11 +69,13 @@ const ContactForm: FC<FormikProps<typeof INITIAL_VALUES>> = ({ errors, touched }
 
 const ContactFormWrapper: FC = () => {
 	const router = useRouter();
+	const [loading, setLoading] = useState(false);
 	const { t } = useTranslation('contact');
 	const [response, setResponse] = useState<any>();
-	const formSchema = getFormSchema(t);
+	const formSchema = getContactFormSchema(t);
 
-	const handleOnSubmit = async (values: typeof INITIAL_VALUES) => {
+	const handleOnSubmit = async (values: ContactFormValues) => {
+		setLoading(true);
 		const response = await fetch(FORMSPREE_URL, {
 			method: 'POST',
 			headers: {
@@ -88,17 +90,23 @@ const ContactFormWrapper: FC = () => {
 
 	useEffect(() => {
 		if (response) {
+			setLoading(false);
 			response?.ok ? router.push('/thanks') : undefined;
 		}
-	}, [response]);
+	}, [response, router]);
+
+	const render = (formikProps: FormikProps<ContactFormValues>) => (
+		<ContactForm loading={loading} {...formikProps} />
+	);
 
 	return (
 		<Formik
 			onSubmit={handleOnSubmit}
-			component={ContactForm}
-			initialValues={INITIAL_VALUES}
+			initialValues={contactFormInitialValues}
 			validationSchema={formSchema}
-		/>
+		>
+			{render}
+		</Formik>
 	);
 };
 

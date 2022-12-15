@@ -12,6 +12,9 @@ module.exports = {
 			'@resources': path.join(__dirname, 'src', 'resources'),
 		}).getImporter(),
 	},
+	images: {
+		domains: ['picsum.photos', 'localhost'],
+	},
 	webpack: (config) => {
 		config.module.rules[2].oneOf.forEach((moduleLoader) => {
 			Array.isArray(moduleLoader.use) &&
@@ -26,6 +29,13 @@ module.exports = {
 					}
 				});
 		});
+
+		config.module.rules.push({
+			test: /\.svg$/i,
+			issuer: /\.[jt]sx?$/,
+			use: ['@svgr/webpack'],
+		});
+
 		return config;
 	},
 };

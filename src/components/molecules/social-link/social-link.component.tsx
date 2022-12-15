@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import type { FC, ReactNode } from 'react';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
-import Anchor from '@/components/atoms/anchor';
+import { Anchor } from '@/components/atoms/anchor/anchor.component';
 
 import { join } from '@/global/utils/classnames';
 
@@ -34,3 +34,4 @@ const SocialLink: FC<SocialLinkProps> = ({
 };
 
 export default SocialLink;
+

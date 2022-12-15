@@ -1,10 +1,11 @@
 .contact-form {
 	display: flex;
 	flex-direction: column;
-	gap: var(--card-padding);
+	gap: 2rem;
 	.form {
 		display: flex;
 		flex-direction: column;
-		gap: var(--card-padding);
+		gap: 2rem;
 	}
 }
+

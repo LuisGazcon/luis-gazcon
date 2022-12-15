@@ -1,1 +1,1 @@
-export { default } from './anchor.component';
+export { Anchor as default } from './anchor.component';

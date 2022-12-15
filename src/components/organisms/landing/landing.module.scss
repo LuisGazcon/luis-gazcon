@@ -43,7 +43,7 @@
 @media screen and(min-width: breakpoints.$tablet) {
 }
 
-@media screen and(max-height: breakpoints.$laptop - 1) {
+@media screen and(max-height: (breakpoints.$laptop - 1)) {
 	.landing {
 		position: relative;
 		box-sizing: border-box;
@@ -150,7 +150,7 @@
 
 				.call-to-action {
 					margin-top: 2rem;
-					grid-column-gap: 1rem;
+					grid-column-gap: 2rem;
 					display: grid;
 					grid-template-columns: 1fr 1fr;
 				}
@@ -159,8 +159,19 @@
 				display: flex;
 				flex-direction: column;
 				height: 100%;
+				justify-content: center;
+
+				.logo {
+					fill: colors.$primary;
+					filter: drop-shadow(0 0 2rem rgba(colors.$primary, 0.75));
+				}
 			}
 		}
+	}
+}
+
+@keyframes logo-animation {
+	0% {
 	}
 }
 
@@ -179,8 +190,5 @@
 
 @media screen and(min-width: breakpoints.$widescreen) {
 	.landing {
-		.right {
-			right: var(--body-margin-x);
-		}
 	}
 }

@@ -1,3 +1,9 @@
 .projects {
-	padding: 6rem;
+	display: flex;
+	flex-direction: column;
+	padding: var(--section-padding-y) var(--section-padding-x);
+
+	& > .heading {
+		margin-bottom: var(--section-padding-y);
+	}
 }

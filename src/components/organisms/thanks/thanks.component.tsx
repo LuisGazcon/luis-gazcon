@@ -13,9 +13,9 @@ interface ThanksProps {}
 
 const Thanks: FC<ThanksProps> = ({}) => {
 	const router = useRouter();
-	const [contactEmail, setContactEmail] = useState<string>('');
+	const [contactEmail, setContactEmail] = useState<string>('exampel@gmail.com');
 
-	useEffect(() => {
+	/* useEffect(() => {
 		setContactEmail(localStorage.getItem('contact-email') ?? '');
 	}, []);
 
@@ -26,17 +26,17 @@ const Thanks: FC<ThanksProps> = ({}) => {
 	useEffect(() => {
 		return () => localStorage.removeItem('contact-email');
 	}, []);
-
+ */
 	return (
 		<Section className={styles.thanks}>
 			<Card className={styles.content}>
 				<div className={styles.side}>
 					<Heading level='1'>Thank you!</Heading>
 					<Heading level='3' className={styles.slogan}>
-						You&aposll have an answer as soon as possible!
+						You&apos;ll have an answer as soon as possible!
 					</Heading>
 					<Paragraph className={styles.description}>
-						Be patient, a message will arrive {contactEmail} with a work propouse.
+						Be patient, a message will arrive to {contactEmail || ''} in a while.
 					</Paragraph>
 				</div>
 				<div className={styles.side}></div>

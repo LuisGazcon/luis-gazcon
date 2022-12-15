@@ -41,3 +41,11 @@
 		--section-padding-y: 6rem;
 	}
 }
+
+@media screen and(min-width: breakpoints.$widescreen) {
+	.section {
+		--section-padding-x: 16rem;
+		--section-padding-y: 6rem;
+	}
+}
+

@@ -18,6 +18,7 @@ $primary-dark: darken(colors.$primary, 15%);
 		color: colors.$white;
 		z-index: 10;
 		transition: 0.5s all ease-in-out;
+		box-shadow: none;
 
 		.icon {
 			color: colors.$white;
@@ -54,7 +55,8 @@ $primary-dark: darken(colors.$primary, 15%);
 		}
 
 		&:hover {
-			box-shadow: 0 0 4rem 0 rgba(colors.$primary, 0.5);
+			box-shadow: 0 0 4rem 0 rgba(0, 0, 0, 0.5);
+			z-index: 10;
 		}
 	}
 }

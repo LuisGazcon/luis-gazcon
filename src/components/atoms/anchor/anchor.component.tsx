@@ -1,19 +1,20 @@
 import React from 'react';
-import type { FC, ReactNode } from 'react';
 import Link from 'next/link';
+
+import type { FC, ReactNode } from 'react';
 
 import { join } from '@/global/utils/classnames';
 
 import styles from './anchor.module.scss';
 
-interface AnchorProps {
+export type AnchorProps = {
 	children?: ReactNode;
 	className?: string;
 	href?: string;
 	target?: string;
-}
+};
 
-const Anchor: FC<AnchorProps> = ({ children, className, href = '#', ...props }: AnchorProps) => {
+export const Anchor: FC<AnchorProps> = ({ children, className, href = '#', ...props }) => {
 	const classNames = join(styles.anchor, className);
 
 	return (
@@ -24,5 +25,3 @@ const Anchor: FC<AnchorProps> = ({ children, className, href = '#', ...props }: 
 		</Link>
 	);
 };
-
-export default Anchor;

@@ -61,8 +61,10 @@ export const getServerSideProps = async ({ locale }: { locale: string }) => ({
 			'header',
 			'about',
 			'contact',
+			'projects',
 		])),
 	},
 });
 
 export default IndexPage;
+

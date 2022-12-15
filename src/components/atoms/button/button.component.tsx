@@ -5,22 +5,37 @@ import { join } from '@/global/utils/classnames';
 
 import styles from './button.module.scss';
 
-interface ButtonProps {
-	children?: ReactNode;
-	className?: string;
-	variant?: 'default' | 'ghost' | 'text';
-	color?: 'primary' | 'secondary' | 'tertiary' | 'quarternary' | 'success' | 'warning' | 'danger';
-	size?: 'small' | 'normal' | 'large';
+export enum ButtonColor {
+	PRIMARY = 'primary',
+	SECONDARY = 'secondary',
+	TERTIARY = 'tertiary',
+	QUARTERNARY = 'quarternary',
+	SUCCESS = 'success',
+	WARNING = 'warning',
+	DANGER = 'danger',
 }
 
-const Button: FC<ButtonProps & JSX.IntrinsicElements['button']> = ({
-	className,
-	children,
-	variant,
-	color,
-	size,
-	...props
-}) => {
+export enum ButtonSize {
+	SMALL = 'small',
+	MEDIUM = 'medium',
+	LARGE = 'large',
+}
+
+export enum ButtonVariant {
+	DEFAULT = 'default',
+	BORDER = 'ghost',
+	TRANSLUCENT = 'text',
+}
+
+export type ButtonProps = JSX.IntrinsicElements['button'] & {
+	children?: ReactNode;
+	className?: string;
+	variant?: ButtonVariant;
+	color?: ButtonColor;
+	size?: ButtonSize;
+};
+
+export const Button: FC<ButtonProps> = ({ className, variant, color, size, ...props }) => {
 	const classNames = join(
 		styles.button,
 		styles[`variant-${variant}`],
@@ -29,16 +44,11 @@ const Button: FC<ButtonProps & JSX.IntrinsicElements['button']> = ({
 		className,
 	);
 
-	return (
-		<button className={classNames} {...props}>
-			{children}
-		</button>
-	);
+	return <button className={classNames} {...props} />;
 };
 
 Button.defaultProps = {
-	color: 'primary',
-	variant: 'default',
+	color: ButtonColor.PRIMARY,
+	variant: ButtonVariant.DEFAULT,
+	size: ButtonSize.MEDIUM,
 };
-
-export default Button;

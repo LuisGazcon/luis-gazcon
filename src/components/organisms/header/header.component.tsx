@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { MouseEventHandler, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { FC } from 'react';
 import { animated, useSpring } from 'react-spring';
 import { useTranslation } from 'next-i18next';
@@ -11,7 +11,7 @@ import {
 	faLanguage,
 } from '@fortawesome/free-solid-svg-icons';
 
-import Anchor from '@/components/atoms/anchor';
+import { Anchor } from '@/components/atoms/anchor/anchor.component';
 import Heading from '@/components/atoms/heading';
 import Navbar from '@/components/molecules/navbar';
 import HeaderToggle from '@/components/molecules/header-toggle';
@@ -25,6 +25,7 @@ import { useScrolled } from '@/global/hooks/scrolled';
 import { languages } from '@/global/utils/languages';
 
 import styles from './header.module.scss';
+import Image from 'next/image';
 
 interface HeaderProps {
 	className?: string;
@@ -40,7 +41,10 @@ const Header: FC<HeaderProps> = ({ className }: HeaderProps) => {
 		height: 0,
 	}));
 
-	const handleOnToggleClick = () => setActive(!active);
+	const handleOnToggleClick: MouseEventHandler = (event) => {
+		event.preventDefault();
+		setActive(!active);
+	};
 
 	const handleOnResizeViewport = () => {
 		const computedStyle = ref.current ? window.getComputedStyle(ref.current) : null;
@@ -57,8 +61,10 @@ const Header: FC<HeaderProps> = ({ className }: HeaderProps) => {
 
 	useLayoutEffect(handleOnResizeViewport, []);
 	useLayoutEffect(() => {
-		window.visualViewport.addEventListener('resize', handleOnResizeViewport);
-		window.visualViewport.addEventListener('move', handleOnResizeViewport);
+		if (window.visualViewport) {
+			window.visualViewport.addEventListener('resize', handleOnResizeViewport);
+			window.visualViewport.addEventListener('move', handleOnResizeViewport);
+		}
 		ref.current?.addEventListener('resize', handleOnResizeViewport);
 	}, [height]);
 
@@ -69,14 +75,18 @@ const Header: FC<HeaderProps> = ({ className }: HeaderProps) => {
 
 		const body = document.getElementsByTagName('body')[0];
 		body.style.overflowY = active ? 'hidden' : 'scroll';
-	}, [active, height]);
+	}, [active, height, api]);
 
 	return (
 		<animated.header style={style} className={classNames} ref={ref}>
 			<Anchor href='/' className={styles.anchor}>
+				<div className={styles.logo}>
+					<Image width='64' height='64' src='/logo.png' alt='' />
+				</div>
 				<Heading level='3' className={styles.brand}>
 					Luis Gazcón
 				</Heading>
+				<HeaderToggle onClick={handleOnToggleClick} className={styles.headerToggle} />
 			</Anchor>
 			<Navbar>
 				<NavbarLink icon={faCode} href='#skills'>
@@ -85,9 +95,9 @@ const Header: FC<HeaderProps> = ({ className }: HeaderProps) => {
 				<NavbarLink icon={faUser} href='#about'>
 					{t('header:about')}
 				</NavbarLink>
-				{/* <NavbarLink icon={faBriefcase} href='/portfolio'>
-					{t('header:portfolio')}
-				</NavbarLink> */}
+				<NavbarLink icon={faBriefcase} href='#projects'>
+					{t('header:projects')}
+				</NavbarLink>
 				<NavbarLink icon={faEnvelope} href='#contact'>
 					{t('header:contact')}
 				</NavbarLink>
@@ -102,7 +112,6 @@ const Header: FC<HeaderProps> = ({ className }: HeaderProps) => {
 				</NavbarDropdown>
 				<SocialLinks className={styles.social} />
 			</Navbar>
-			<HeaderToggle onClick={handleOnToggleClick} className={styles.headerToggle} />
 		</animated.header>
 	);
 };

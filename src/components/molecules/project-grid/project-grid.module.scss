@@ -1,0 +1,39 @@
+@use '@/resources/scss/breakpoints';
+
+.project-grid {
+	--gap: 2rem;
+	column-gap: var(--gap);
+	column-fill: initial;
+	column-width: 200px;
+	column-count: 3;
+}
+
+.project-grid > * {
+	--gap: inherit;
+	break-inside: avoid;
+	margin-bottom: var(--gap);
+}
+
+@media screen and(max-width: (breakpoints.$mobile-large - 1 )) {
+	.project-grid {
+		column-count: 1;
+	}
+}
+
+@media screen and(min-width: (breakpoints.$mobile-large)) {
+	.project-grid {
+		column-count: 1;
+	}
+}
+
+@media screen and(min-width: (breakpoints.$tablet)) {
+	.project-grid {
+		column-count: 2;
+	}
+}
+
+@media screen and(min-width: (breakpoints.$laptop)) {
+	.project-grid {
+		column-count: 3;
+	}
+}

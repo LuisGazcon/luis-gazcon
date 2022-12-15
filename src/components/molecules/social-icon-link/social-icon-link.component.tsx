@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { IconDefinition } from '@fortawesome/fontawesome-common-types';
 
-import Anchor from '@/components/atoms/anchor';
+import { Anchor } from '@/components/atoms/anchor/anchor.component';
 
 import { join } from '@/global/utils/classnames';
 
@@ -40,3 +40,4 @@ const SocialIconLink: FC<SocialIconLink> = ({
 };
 
 export default SocialIconLink;
+

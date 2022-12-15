@@ -23,10 +23,25 @@ $header-box-shadow: 0 0 2rem 0 rgba(colors.$quarternary, 50%);
 
 	background: transparent;
 	backdrop-filter: blur(16px) !important;
+	-webkit-backdrop-filter: blur(16px) !important;
 	height: 4rem;
 
 	.anchor {
 		text-decoration: none;
+		flex-direction: row;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+
+		.logo {
+			display: flex;
+			width: 3rem;
+			max-height: 3rem;
+			aspect-ratio: 1;
+			border-radius: 100%;
+			overflow: hidden;
+			margin-right: auto;
+		}
 
 		&:focus > .brand {
 			text-decoration: underline;
@@ -43,6 +58,8 @@ $header-box-shadow: 0 0 2rem 0 rgba(colors.$quarternary, 50%);
 		line-height: var(--header-height);
 		color: colors.$primary;
 		text-decoration: inherit;
+		margin-right: auto;
+		padding-right: 3rem;
 
 		&::after {
 			content: none;
@@ -50,6 +67,9 @@ $header-box-shadow: 0 0 2rem 0 rgba(colors.$quarternary, 50%);
 	}
 	.header-toggle {
 		position: fixed;
+		background: colors.$primary;
+		color: white;
+		border-radius: 100%;
 	}
 
 	.social {
@@ -100,7 +120,7 @@ $header-box-shadow: 0 0 2rem 0 rgba(colors.$quarternary, 50%);
 		--header-y-padding: 0;
 	}
 }
-@media screen and(max-width: breakpoints.$laptop - 1) {
+@media screen and(max-width: (breakpoints.$laptop - 1)) {
 	.header {
 		overflow: hidden;
 		padding-bottom: var(--header-x-padding);
@@ -160,10 +180,14 @@ $header-box-shadow: 0 0 2rem 0 rgba(colors.$quarternary, 50%);
 
 @media screen and(min-width: breakpoints.$widescreen) {
 	.header {
-		--header-height: 6rem;
-		--header-x-padding: 8rem;
-		--header-y-padding: 0;
-		left: var(--body-margin-x);
-		right: var(--body-margin-x);
+		--header-x-padding: 16rem;
+		--header-y-padding: 0rem;
+	}
+}
+
+@media screen and(min-width: breakpoints.$ultra-widescreen) {
+	.header {
+		--header-x-padding: 16rem;
+		--header-y-padding: 0rem;
 	}
 }

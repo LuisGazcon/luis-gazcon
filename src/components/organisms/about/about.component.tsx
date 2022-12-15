@@ -1,6 +1,7 @@
 import React from 'react';
 import type { FC } from 'react';
 import { faFacebook, faGithub, faLinkedin, faNpm } from '@fortawesome/free-brands-svg-icons';
+import Image from 'next/image';
 
 import Card from '@/components/atoms/card';
 import Heading from '@/components/atoms/heading';
@@ -28,7 +29,37 @@ const About: FC<AboutProps> = ({ className }: AboutProps) => {
 				{t('about')}
 			</Heading>
 			<div className={styles.content}>
-				<div className={styles.imageWrapper}>
+				<div className={styles.grid}>
+					<Card className={join(styles.card, styles.image)}>
+						<Image width='1080' height='1080' src='/images/me.jpg' className={styles.image} />
+					</Card>
+					<Card className={join(styles.card, styles.highlighted)}>
+						<Heading className={styles.heading} level='4'>
+							{t('who-im-i')}
+						</Heading>
+						<Paragraph>{t('who-im-i-description')}</Paragraph>
+					</Card>
+					<Card className={styles.card}>
+						<Heading className={styles.heading} level='4'>
+							{t('where-you-can-reach-me')}
+						</Heading>
+					</Card>
+					<Card className={styles.card}>Popo</Card>
+					<Card className={join(styles.card, styles.highlighted)}>
+						<Heading className={styles.heading} level='4'>
+							{t('where-you-can-reach-me')}
+						</Heading>
+						<Paragraph>{t('where-you-can-reach-me-description')}</Paragraph>
+					</Card>
+				</div>
+			</div>
+		</Section>
+	);
+};
+
+export default About;
+
+/* <div className={styles.imageWrapper}>
 					<img src='/images/me.jpg' className={styles.image} />
 				</div>
 				<div className={styles.information}>
@@ -42,8 +73,8 @@ const About: FC<AboutProps> = ({ className }: AboutProps) => {
 						<Heading level='4' className={styles.heading}>
 							{t('where-you-can-reach-me')}
 						</Heading>
-						<Paragraph>{t('where-you-can-reach-me-description')}</Paragraph>
-						<div className={styles.links}>
+							<Paragraph>{t('where-you-can-reach-me-description')}</Paragraph>
+							<div className={styles.links}>
 							<SocialLink icon={faNpm} href='https://www.npmjs.com/~luis-gazcon' target='_blank'>
 								Linkedin
 							</SocialLink>
@@ -62,10 +93,4 @@ const About: FC<AboutProps> = ({ className }: AboutProps) => {
 							</SocialLink>
 						</div>
 					</Card>
-				</div>
-			</div>
-		</Section>
-	);
-};
-
-export default About;
+				</div> */

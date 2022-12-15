@@ -23,12 +23,12 @@
 	}
 }
 
-@media screen and(max-width: breakpoints.$laptop - 1) {
+@media screen and(max-width: (breakpoints.$laptop - 1)) {
 	.skills {
 		.content {
 			display: flex;
 			flex-direction: column;
-			gap: var(--section-padding-x);
+			gap: 2rem;
 		}
 	}
 }
@@ -39,7 +39,7 @@
 			display: grid;
 			grid-auto-flow: column;
 			grid-auto-columns: 1fr;
-			grid-column-gap: calc(var(--section-padding-x) / 2);
+			grid-column-gap: 2rem;
 		}
 	}
 }

@@ -6,14 +6,17 @@ import Section from '@/components/atoms/section';
 import Card from '@/components/atoms/card';
 import Heading from '@/components/atoms/heading';
 import Paragraph from '@/components/atoms/paragraph';
-import Button from '@/components/atoms/button';
+import { Button, ButtonVariant } from '@/components/atoms/button/button.component';
 import SocialLinks from '@/components/organisms/social-links';
 
 import styles from './landing.module.scss';
+import Image from 'next/image';
 
-interface LandingProps {}
+import SvgLogo from '@/resources/svg/logo.svg';
 
-const Landing: FC<LandingProps> = ({}) => {
+export type LandingProps = {};
+
+export const Landing: FC<LandingProps> = ({}) => {
 	const { t } = useTranslation();
 
 	return (
@@ -28,9 +31,14 @@ const Landing: FC<LandingProps> = ({}) => {
 					</Heading>
 					<Paragraph className={styles.description}>{t('common:description')}</Paragraph>
 					<div className={styles.callToAction}>
-						<Button variant='ghost'>{t('landing:view-projects')}</Button>
+						<Button variant={ButtonVariant.BORDER}>{t('landing:view-projects')}</Button>
 						<Button>{t('landing:contact')}</Button>
 					</div>
+				</div>
+				<div>
+					<span className={styles.picture}>
+						<SvgLogo className={styles.logo} />
+					</span>
 				</div>
 			</Card>
 			<div className={styles.right}>

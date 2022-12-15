@@ -27,6 +27,7 @@
 	},
 	"devDependencies": {
 		"@react-spring/types": "9.2.4",
+		"@svgr/webpack": "^6.5.1",
 		"@types/react": "17.0.18",
 		"@types/webpack": "5.28.0",
 		"eslint": "7.32.0",
