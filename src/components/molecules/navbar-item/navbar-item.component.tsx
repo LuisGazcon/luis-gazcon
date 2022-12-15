@@ -26,7 +26,7 @@ const NavbarItem: FC<NavbarItemProps> = ({
 	...props
 }: NavbarItemProps) => {
 	const classNames = join(styles.navbarItem, className);
-	const Element = as ?? 'li';
+	const Element: ElementType = as ?? 'li';
 
 	return (
 		<Element className={classNames} onClick={onClick ?? undefined}>
@@ -37,3 +37,4 @@ const NavbarItem: FC<NavbarItemProps> = ({
 };
 
 export default NavbarItem;
+
