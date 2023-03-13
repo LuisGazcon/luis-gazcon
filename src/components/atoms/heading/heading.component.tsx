@@ -23,3 +23,4 @@ const Heading: FC<HeadingProps> = ({ children, className, level, ...props }) => 
 };
 
 export default Heading;
+

@@ -12,7 +12,7 @@ import SocialLinks from '@/components/organisms/social-links';
 import styles from './landing.module.scss';
 import Image from 'next/image';
 
-import SvgLogo from '@/resources/svg/logo.svg';
+import Logo from '@/resources/svg/logo.svg';
 
 export type LandingProps = {};
 
@@ -20,6 +20,29 @@ export const Landing: FC<LandingProps> = ({}) => {
 	const { t } = useTranslation();
 
 	return (
+		<Section className={styles.landing}>
+			<div className={styles.content}>
+				<div className={styles.logoWrapper}>
+					<Logo className={styles.logo} />
+				</div>
+				<Heading level='1' className={styles.slogan}>
+					{t('common:slogan')}
+				</Heading>
+				<Heading level='2' className={styles.title}>
+					{t('common:title')}
+				</Heading>
+				<Paragraph>
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit, ex!
+				</Paragraph>
+				<div className={styles.callToAction}>
+					<Button variant={ButtonVariant.BORDER}>{t('landing:view-projects')}</Button>
+					<Button>{t('landing:contact')}</Button>
+				</div>
+			</div>
+		</Section>
+	);
+
+	/* 	return (
 		<Section className={styles.landing}>
 			<Card className={styles.content}>
 				<div className={styles.presentation}>
@@ -45,7 +68,7 @@ export const Landing: FC<LandingProps> = ({}) => {
 				<SocialLinks className={styles.social} />
 			</div>
 		</Section>
-	);
+	); */
 };
 
 export default Landing;

@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { animated, useSpring } from 'react-spring';
-import { useGesture } from '@use-gesture/react';
+import { useGesture, useMove } from '@use-gesture/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import type { FC, ReactNode } from 'react';
